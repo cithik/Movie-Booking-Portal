@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.me.moviebooking.model.MovieComment" table="movie_comment">
+		<id name="bookingId" type="java.lang.Integer">
+			<column name="booking_id" />
+			<generator class="foreign">
+				<param name="property">bookingHistory</param>
+			</generator>
+		</id>
+		<one-to-one name="bookingHistory" class="com.me.moviebooking.model.BookingHistory"
+			constrained="true" ></one-to-one>
+		<property name="comment" type="java.lang.String">
+			<column name="comment" />
+		</property>
+		<property name="rating" type="java.lang.Integer">
+			<column name="rating" />
+		</property>
+	</class>
+</hibernate-mapping>

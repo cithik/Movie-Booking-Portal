@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Customer Save Page</title>
+<style>
+.error {
+    color: #ff0000;
+    font-style: italic;
+    font-weight: bold;
+}
+</style>
+<script type="text/javascript"
+    src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1>
+	Boking History:
+</h1>
+ <table class="table table-condensed">
+ <tr>
+     <td><b>Cinema Name</b></td>
+     <td><b>Screen Name</b></td>
+     <td><b>Movie Name</b></td>
+     <td><b>Quantity<b></td>
+ </tr>
+#foreach($booking in $bookings)
+         <tr>
+              <td>${booking.showtime.cinema.name}</td>
+              <td>${booking.showtime.screen.name}</td>
+              <td>${booking.showtime.movie.name}</td>
+              <td>${booking.quantity}</td>
+         </tr>
+         #end
+</table>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.me.moviebooking.model.BookingHistory" table="booking_history">
+       <id name="bookingId" type="java.lang.Integer">
+            <column name="booking_id" />
+            <generator class="increment" />
+        </id>
+        <many-to-one name="showtime" class="com.me.moviebooking.model.Showtime" fetch="select">
+            <column name="showtime_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="customer" class="com.me.moviebooking.model.Customer" fetch="select">
+            <column name="person_id" not-null="true"/>
+        </many-to-one>
+        <property name="quantity" type="java.lang.Integer">
+            <column name="quantity" />
+        </property>
+    </class>
+</hibernate-mapping>
